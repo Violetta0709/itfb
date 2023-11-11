@@ -4,6 +4,8 @@ import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.veta.pages.HomePage;
+import org.veta.pages.alerts_frame_windows.AllertsFrameWindowsPage;
+import org.veta.pages.alerts_frame_windows.BrowserWindowsPage;
 import org.veta.pages.elements.ButtonsPage;
 import org.veta.pages.elements.ElementsPage;
 import org.veta.pages.elements.TextBoxPage;
@@ -15,6 +17,8 @@ public class DemoQATests extends TestBase {
     TextBoxPage textBoxPage = new TextBoxPage();
     ElementsPage elementsPage = new ElementsPage();
     ButtonsPage buttonsPage = new ButtonsPage();
+    AllertsFrameWindowsPage allertsFrameWindowsPage = new AllertsFrameWindowsPage();
+    BrowserWindowsPage browserWindowsPage = new BrowserWindowsPage();
 
 
     @Owner("V.Yuzykhovich")
@@ -40,7 +44,12 @@ public class DemoQATests extends TestBase {
                 .checkRightClickMessage()
                 .clickDoubleClickButton()
                 .checkDoubleClickMessage();
-
+        allertsFrameWindowsPage.clickAlertsFramesWindowsButton();
+        browserWindowsPage.clickBrowserWindowsButton()
+                .clickNewTabButton()
+                .closeNewTab()
+                .clickNewWindowButton()
+                .closeNewWindow();
 
     }
 }

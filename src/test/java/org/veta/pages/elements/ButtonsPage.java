@@ -15,6 +15,7 @@ public class ButtonsPage extends ElementsPage {
     @Step("Нажимаем Buttons")
     public ButtonsPage clickButtons() {
         open("/buttons");
+        zoom(0.7);
         $("#item-4").click();
         return this;
     }
