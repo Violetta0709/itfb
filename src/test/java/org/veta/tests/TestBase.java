@@ -17,10 +17,10 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browser = "chrome";
-        Configuration.browserVersion = "113";
+        Configuration.browserVersion = "118";
         Configuration.browserSize = "1920x1080";
         //WebDriverProvider.configure();
-       // Selenide.clearBrowserCookies();
+        Selenide.clearBrowserCookies();
         Configuration.holdBrowserOpen = true;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -28,7 +28,7 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);
     }
 
-   /* @BeforeEach
+    /*
     void addListener() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }*/

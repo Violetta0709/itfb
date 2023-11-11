@@ -17,7 +17,7 @@ public interface WebDriverConfig extends Config {
     String getBrowser();
 
     @Key("browserVersion")
-    @DefaultValue("113.0")
+    @DefaultValue("118.0")
     String getBrowserVersion();
 
    // @Key("remoteWebDriver")
