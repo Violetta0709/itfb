@@ -10,5 +10,6 @@ public class TestData {
             fullName = faker.name().fullName(),
             email = faker.internet().emailAddress(),
             currentAddress = faker.address().fullAddress(),
-            permanentAddress = faker.address().fullAddress();
+            permanentAddress = faker.address().fullAddress(),
+            testName = "Test name";
 }

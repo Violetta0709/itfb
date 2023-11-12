@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class ButtonsPage extends ElementsPage {
+public class ButtonsPage {
 
     private final static String DYNAMIC_CLICK_MESSAGE = "You have done a dynamic click";
     private final static String RIGHT_CLICK_MESSAGE = "You have done a right click";

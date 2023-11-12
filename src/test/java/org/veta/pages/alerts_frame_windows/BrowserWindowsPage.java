@@ -1,12 +1,9 @@
 package org.veta.pages.alerts_frame_windows;
 
 import io.qameta.allure.Step;
-import org.veta.pages.elements.ElementsPage;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
 
 public class BrowserWindowsPage {
 
@@ -30,17 +27,12 @@ public class BrowserWindowsPage {
         return this;
     }
 
-    public BrowserWindowsPage closeNewWindow() {
-        closeWindow();
+    @Step("Закрываем новое окно/таб")
+    public BrowserWindowsPage closeNewTab_Or_Window() {
+        switchTo().window(1).close();
+        switchTo().window(0);
         return this;
     }
-
-    public BrowserWindowsPage closeNewTab() {
-        switchTo().window(1);
-        closeWindow();
-        return this;
-    }
-
 }
 
 

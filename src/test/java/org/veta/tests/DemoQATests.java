@@ -3,22 +3,22 @@ package org.veta.tests;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.veta.pages.HomePage;
-import org.veta.pages.alerts_frame_windows.AllertsFrameWindowsPage;
+import org.veta.pages.alerts_frame_windows.AlertsFrameWindowsPage;
+import org.veta.pages.alerts_frame_windows.AlertsPage;
 import org.veta.pages.alerts_frame_windows.BrowserWindowsPage;
 import org.veta.pages.elements.ButtonsPage;
 import org.veta.pages.elements.ElementsPage;
 import org.veta.pages.elements.TextBoxPage;
 
-import static jdk.internal.org.jline.utils.InfoCmp.Capability.buttons;
 import static org.veta.tests.TestData.*;
 
 public class DemoQATests extends TestBase {
     TextBoxPage textBoxPage = new TextBoxPage();
     ElementsPage elementsPage = new ElementsPage();
     ButtonsPage buttonsPage = new ButtonsPage();
-    AllertsFrameWindowsPage allertsFrameWindowsPage = new AllertsFrameWindowsPage();
+    AlertsFrameWindowsPage alertsFrameWindowsPage = new AlertsFrameWindowsPage();
     BrowserWindowsPage browserWindowsPage = new BrowserWindowsPage();
+    AlertsPage alertsPage = new AlertsPage();
 
 
     @Owner("V.Yuzykhovich")
@@ -44,12 +44,20 @@ public class DemoQATests extends TestBase {
                 .checkRightClickMessage()
                 .clickDoubleClickButton()
                 .checkDoubleClickMessage();
-        allertsFrameWindowsPage.clickAlertsFramesWindowsButton();
+        alertsFrameWindowsPage.clickAlertsFramesWindowsButton();
         browserWindowsPage.clickBrowserWindowsButton()
                 .clickNewTabButton()
-                .closeNewTab()
+                .closeNewTab_Or_Window()
                 .clickNewWindowButton()
-                .closeNewWindow();
-
+                .closeNewTab_Or_Window();
+        alertsPage.clickAlertsButton()
+                .clickButtonToSeeAlert()
+                .closeNotification()
+                .clickButtonToSeeAllertAppearAfterFiveSec()
+                .closeNotification()
+                .clickButtonConfirmBoxAppear()
+                .checkConfirmBoxOkMessage()
+                .clickButtonPromptBoxAppear(testName)
+                .checkPromptBoxOkMessage();
     }
 }

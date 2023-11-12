@@ -2,10 +2,8 @@ package org.veta.pages;
 
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
-import org.veta.pages.elements.ElementsPage;
 
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.open;
 
 public class HomePage {
 

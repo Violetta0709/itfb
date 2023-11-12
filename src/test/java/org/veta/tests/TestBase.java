@@ -7,7 +7,6 @@ import config.WebDriverProvider;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.veta.helpers.Attach;
 
@@ -19,7 +18,7 @@ public class TestBase {
         Configuration.browser = "chrome";
         Configuration.browserVersion = "118";
         Configuration.browserSize = "1920x1080";
-        //WebDriverProvider.configure();
+        WebDriverProvider.configure();
         Selenide.clearBrowserCookies();
         Configuration.holdBrowserOpen = true;
 
@@ -28,17 +27,11 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);
     }
 
-    /*
-    void addListener() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-    }*/
-
     @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo();
     }
 }
 

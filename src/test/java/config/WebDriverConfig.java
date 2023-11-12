@@ -1,4 +1,5 @@
 package config;
+
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
@@ -6,8 +7,6 @@ import org.aeonbits.owner.Config;
 })
 
 public interface WebDriverConfig extends Config {
-
-
     @Key("baseUrl")
     @DefaultValue("https://demoqa.com")
     String getBaseUrl();
@@ -19,7 +18,4 @@ public interface WebDriverConfig extends Config {
     @Key("browserVersion")
     @DefaultValue("118.0")
     String getBrowserVersion();
-
-   // @Key("remoteWebDriver")
-    //String getRemoteWebDriver();
 }
