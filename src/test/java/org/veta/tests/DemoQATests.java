@@ -3,20 +3,18 @@ package org.veta.tests;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.veta.pages.alerts_frame_windows.AlertsFrameWindowsPage;
+import org.veta.pages.HomePage;
 import org.veta.pages.alerts_frame_windows.AlertsPage;
 import org.veta.pages.alerts_frame_windows.BrowserWindowsPage;
 import org.veta.pages.elements.ButtonsPage;
-import org.veta.pages.elements.ElementsPage;
 import org.veta.pages.elements.TextBoxPage;
 
 import static org.veta.tests.TestData.*;
 
 public class DemoQATests extends TestBase {
+    HomePage homePage = new HomePage();
     TextBoxPage textBoxPage = new TextBoxPage();
-    ElementsPage elementsPage = new ElementsPage();
     ButtonsPage buttonsPage = new ButtonsPage();
-    AlertsFrameWindowsPage alertsFrameWindowsPage = new AlertsFrameWindowsPage();
     BrowserWindowsPage browserWindowsPage = new BrowserWindowsPage();
     AlertsPage alertsPage = new AlertsPage();
 
@@ -25,8 +23,8 @@ public class DemoQATests extends TestBase {
     @DisplayName("Testing DemoQA")
     @Test
     void checkDemoQATest() {
-        elementsPage.openElements().
-                clickElements("Elements");
+        homePage.openPage()
+                .clickElements();
         textBoxPage.clickTextBox()
                 .fillFullName(fullName)
                 .fillEmail(email)
@@ -38,14 +36,14 @@ public class DemoQATests extends TestBase {
                 .checkCurrentAddressSavedCorrect(currentAddress)
                 .checkPermanentAddressSavedCorrect(permanentAddress);
         buttonsPage.clickButtons()
-                .clickClickButton()
+                .clickClickMeButton()
                 .checkDynamicClickMessage()
-                .clickRightClickButton()
+                .clickRightClickMeButton()
                 .checkRightClickMessage()
-                .clickDoubleClickButton()
+                .clickDoubleClickMeButton()
                 .checkDoubleClickMessage();
-        alertsFrameWindowsPage.clickAlertsFramesWindowsButton();
-        browserWindowsPage.clickBrowserWindowsButton()
+        browserWindowsPage.clickAlertsFrameWindowsButton()
+                .clickBrowserWindowsButton()
                 .clickNewTabButton()
                 .closeNewTab_Or_Window()
                 .clickNewWindowButton()
@@ -53,11 +51,12 @@ public class DemoQATests extends TestBase {
         alertsPage.clickAlertsButton()
                 .clickButtonToSeeAlert()
                 .closeNotification()
-                .clickButtonToSeeAllertAppearAfterFiveSec()
+                .clickButtonToSeeAlertAfterFiveSec()
                 .closeNotification()
                 .clickButtonConfirmBoxAppear()
                 .checkConfirmBoxOkMessage()
-                .clickButtonPromptBoxAppear(testName)
-                .checkPromptBoxOkMessage();
+                .clickButtonPromptBoxAppear()
+                .fillDataInPromptBox(testName)
+                .checkPromptBoxMessage();
     }
 }

@@ -21,7 +21,7 @@ public class ButtonsPage {
     }
 
     @Step("Нажимаем кнопку Click me")
-    public ButtonsPage clickClickButton() {
+    public ButtonsPage clickClickMeButton() {
         $(byText("Click Me")).click();
         return this;
     }
@@ -33,7 +33,7 @@ public class ButtonsPage {
     }
 
     @Step("Нажимаем кнопку Right click me")
-    public ButtonsPage clickRightClickButton() {
+    public ButtonsPage clickRightClickMeButton() {
         $(byText("Right Click Me")).contextClick();
         return this;
     }
@@ -45,7 +45,7 @@ public class ButtonsPage {
     }
 
     @Step("Нажимаем кнопку Double Click Me")
-    public ButtonsPage clickDoubleClickButton() {
+    public ButtonsPage clickDoubleClickMeButton() {
         $(byText("Double Click Me")).doubleClick();
         return this;
     }

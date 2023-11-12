@@ -7,6 +7,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class BrowserWindowsPage {
 
+    @Step("Нажимаем Alerts, Frame & Windows")
+    public BrowserWindowsPage clickAlertsFrameWindowsButton() {
+        zoom(0.7);
+        $(byText("Alerts, Frame & Windows")).scrollIntoView(true).click();
+        return this;
+    }
+
+
     @Step("Нажимаем кнопку Browser Windows")
     public BrowserWindowsPage clickBrowserWindowsButton() {
         open("/browser-windows");

@@ -12,6 +12,7 @@ public class AlertsPage {
 
     @Step("Нажимаем кнопку Alerts")
     public AlertsPage clickAlertsButton() {
+        //$(byXpath("//*[@class=\"element-list collapse show\"]/ul/li")).click();
         $(byText("Alerts")).click();
         return this;
     }
@@ -23,7 +24,7 @@ public class AlertsPage {
     }
 
     @Step("Нажимаем Click me рядом с On button click, alert will appear after 5 seconds")
-    public AlertsPage clickButtonToSeeAllertAppearAfterFiveSec() {
+    public AlertsPage clickButtonToSeeAlertAfterFiveSec() {
         $("#timerAlertButton").click();
         sleep(5000);
         return this;
@@ -36,8 +37,13 @@ public class AlertsPage {
     }
 
     @Step("Нажимаем Click me рядом с On button click, prompt box will appear")
-    public AlertsPage clickButtonPromptBoxAppear(String name) {
+    public AlertsPage clickButtonPromptBoxAppear() {
         $("#promtButton").click();
+        return this;
+    }
+
+    @Step("Заполняем поле в уведомлении данными")
+    public AlertsPage fillDataInPromptBox(String name) {
         Selenide.prompt(name);
         return this;
     }
@@ -49,11 +55,9 @@ public class AlertsPage {
     }
 
     @Step("Проверяем текст уведомления после заполнения prompt box")
-    public AlertsPage checkPromptBoxOkMessage() {
+    public void checkPromptBoxMessage() {
         $("#promptResult").shouldHave(text("You entered Test name"));
-        return this;
     }
-
 
     @Step("Закрываем уведомление")
     public AlertsPage closeNotification() {

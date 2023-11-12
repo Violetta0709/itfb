@@ -62,10 +62,9 @@ public class TextBoxPage {
         return this;
     }
 
-    @Step("Проверяем, что адрес регистрации сохранен корректно")
-    public TextBoxPage checkPermanentAddressSavedCorrect(String permanentAddress) {
+    @Step("Проверяем, что постоянный адрес сохранен корректно")
+    public void checkPermanentAddressSavedCorrect(String permanentAddress) {
         $$("#permanentAddress").last().shouldHave(text(permanentAddress));
-        return this;
     }
 }
 
