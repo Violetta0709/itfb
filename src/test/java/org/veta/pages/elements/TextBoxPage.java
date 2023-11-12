@@ -3,6 +3,7 @@ package org.veta.pages.elements;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -10,7 +11,7 @@ public class TextBoxPage {
 
     @Step("Нажимаем TextBox")
     public TextBoxPage clickTextBox() {
-        $("#item-0").click();
+        $(byText("Text Box")).click();
         return this;
     }
 

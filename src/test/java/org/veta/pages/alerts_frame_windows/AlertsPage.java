@@ -12,7 +12,6 @@ public class AlertsPage {
 
     @Step("Нажимаем кнопку Alerts")
     public AlertsPage clickAlertsButton() {
-        //$(byXpath("//*[@class=\"element-list collapse show\"]/ul/li")).click();
         $(byText("Alerts")).click();
         return this;
     }

@@ -14,11 +14,8 @@ public class BrowserWindowsPage {
         return this;
     }
 
-
     @Step("Нажимаем кнопку Browser Windows")
     public BrowserWindowsPage clickBrowserWindowsButton() {
-        open("/browser-windows");
-        zoom(0.7);
         $(byText("Browser Windows")).click();
         return this;
     }

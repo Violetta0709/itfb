@@ -14,9 +14,7 @@ public class ButtonsPage {
 
     @Step("Нажимаем Buttons")
     public ButtonsPage clickButtons() {
-        open("/buttons");
-        zoom(0.7);
-        $("#item-4").click();
+        $(byText("Buttons")).click();
         return this;
     }
 
@@ -34,7 +32,7 @@ public class ButtonsPage {
 
     @Step("Нажимаем кнопку Right click me")
     public ButtonsPage clickRightClickMeButton() {
-        $(byText("Right Click Me")).contextClick();
+        $("#rightClickBtn").contextClick();
         return this;
     }
 
@@ -46,14 +44,13 @@ public class ButtonsPage {
 
     @Step("Нажимаем кнопку Double Click Me")
     public ButtonsPage clickDoubleClickMeButton() {
-        $(byText("Double Click Me")).doubleClick();
+        $("#doubleClickBtn").doubleClick();
         return this;
     }
 
     @Step("Проверяем, что появился текст - You have done a double click")
-    public ButtonsPage checkDoubleClickMessage() {
+    public void checkDoubleClickMessage() {
         $("#doubleClickMessage").shouldHave(text(DOUBLE_CLICK_MESSAGE));
-        return this;
     }
 }
 

@@ -18,7 +18,6 @@ public class DemoQATests extends TestBase {
     BrowserWindowsPage browserWindowsPage = new BrowserWindowsPage();
     AlertsPage alertsPage = new AlertsPage();
 
-
     @Owner("V.Yuzykhovich")
     @DisplayName("Testing DemoQA")
     @Test
